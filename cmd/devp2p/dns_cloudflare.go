@@ -138,7 +138,7 @@ func (c *cloudflareClient) uploadRecords(name string, records map[string]string)
 			created++
 			ttl := rootTTL
 			if path != name {
-				ttl = 2000000 // Max TTL permitted by Cloudflare
+				ttl = 86400 // Max TTL permitted by Cloudflare
 			}
 			record := cloudflare.DNSRecord{Type: "TXT", Name: path, Content: val, TTL: ttl}
 			_, err = c.CreateDNSRecord(context.Background(), c.zoneID, record)
