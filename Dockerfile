@@ -15,7 +15,7 @@ RUN cd /go-expanse && go run build/ci.go install ./cmd/gexp
 FROM alpine:latest
 
 RUN apk add --no-cache ca-certificates
-COPY --from=builder /go-expanse/build/bin/geth /usr/local/bin/
+COPY --from=builder /go-expanse/build/bin/gexp /usr/local/bin/
 
 EXPOSE 9656 9656 42786 42786/udp
 ENTRYPOINT ["gexp"]
